@@ -30,9 +30,13 @@ public class ListExercisesTest {
         List<Integer> lst = List.of(1, 2, 3, 4, 5, 6);
         List<Integer> lstExpected = List.of(2, 4, 6);
 
+        List<Integer> l2st = List.of(1, 3);
+//        List<Integer> l2stExpected = List.of(2, 4, 6);
         List<Integer> res = ListExercises.evens(lst);
+        List<Integer> res2 = ListExercises.evens(l2st);
 
         assertThat(res).isEqualTo(lstExpected);
+        assertThat(res2).isEmpty();
     }
 
     @Test
