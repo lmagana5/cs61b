@@ -21,7 +21,7 @@ public class NaiveLetterFreqGuesser implements Guesser {
      *  This task is similar to something you did in hw0b! */
     public Map<Character, Integer> getFrequencyMap() {
         List<Character> chars = new ArrayList<>();
-        Map<Character, Integer> frequency = new HashMap<>();
+        Map<Character, Integer> frequency = new TreeMap<>();
         int count;
         for (String word : words) {
             word.chars().forEach(y -> chars.add((char) y));
