@@ -1,10 +1,8 @@
 package aoa.guessers;
 
 import aoa.utils.FileUtils;
-import edu.princeton.cs.algs4.In;
 
 import java.util.*;
-import java.util.stream.Collectors;
 
 public class NaiveLetterFreqGuesser implements Guesser {
     private final List<String> words;
@@ -33,7 +31,7 @@ public class NaiveLetterFreqGuesser implements Guesser {
             if (!chars.contains(alphabet)) {
                 continue;
             }
-            count = Collections.frequency(chars,alphabet);
+            count = Collections.frequency(chars, alphabet);
             frequency.put(alphabet, count);
         }
 
@@ -43,8 +41,17 @@ public class NaiveLetterFreqGuesser implements Guesser {
     /** Returns the most common letter in WORDS that has not yet been guessed
      *  (and therefore isn't present in GUESSES). */
     public char getGuess(List<Character> guesses) {
-        // TODO: Fill in this method.
-        return '?';
+        Map<Character, Integer> freqMap = getFrequencyMap();
+
+        if (freqMap.isEmpty()) {
+            return '?';
+        }
+
+        for (Character guess : guesses) {
+            freqMap.remove(guess);
+        }
+
+        return Collections.max(freqMap.entrySet(), Map.Entry.comparingByValue()).getKey();
     }
 
     public static void main(String[] args) {
