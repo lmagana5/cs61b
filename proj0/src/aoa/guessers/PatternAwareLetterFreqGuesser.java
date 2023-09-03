@@ -52,23 +52,23 @@ public class PatternAwareLetterFreqGuesser implements Guesser {
     public List<String> keepOnlyWordsThatMatchPattern(String pattern) {
         Map<Integer, Character> justLetters = new TreeMap<>();
         List<String> matchedPatternWords = new ArrayList<>();
-        for (int i = 0; i< pattern.length(); i++) {
+        for (int i = 0; i < pattern.length(); i++) {
             if (Character.isLetter(pattern.charAt(i))) {
                justLetters.put(i, (pattern.charAt(i)));
             }
         }
-        if (justLetters.isEmpty()) {
-            return words;
+            if (justLetters.isEmpty()) {
+               return words;
         }
 
-        for ( String word : words) {
+        for (String word : words) {
             boolean match = false;
-            if (word.length() != pattern.length()){
+            if (word.length() != pattern.length()) {
                 continue;
             }
             for (Map.Entry<Integer, Character> entry : justLetters.entrySet()) {
                 match = word.charAt(entry.getKey()) == entry.getValue();
-                if(!match) {
+                if (!match) {
                     break;
                 }
             }
