@@ -17,6 +17,7 @@ public class PAGALetterFreqGuesser implements Guesser {
     public char getGuess(String pattern, List<Character> guesses) {
         List<String> updatedWords = removeIncorrectGuesses(guesses, pattern);
         Map<Character, Integer> freqMap = getFreqMapThatMatchesPattern(updatedWords);
+
         if (freqMap.isEmpty()) {
             return '?';
         }
