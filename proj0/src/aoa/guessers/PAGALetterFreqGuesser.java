@@ -106,7 +106,7 @@ public class PAGALetterFreqGuesser implements Guesser {
             matchedWords = keepOnlyWordsThatMatchPattern(updateWords, pattern);
         }
         else {
-            matchedWords = keepOnlyWordsThatMatchPattern(words, pattern);
+            return matchedWords = keepOnlyWordsThatMatchPattern(words, pattern);
         }
         //Remove words that have duplicate letters that don't match pattern and return final list of words
         return removeWrongMultipleLetters(guesses, pattern, matchedWords);
